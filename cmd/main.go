@@ -5,18 +5,12 @@ import (
 	"JWTService/pkg/database"
 	"JWTService/pkg/handler"
 	"JWTService/pkg/service"
-	"github.com/joho/godotenv"
-	_ "github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"github.com/sirupsen/logrus"
 )
 
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))
-
-	if err := godotenv.Load(); err != nil {
-		logrus.Fatalf("error loading env: %s", err.Error())
-	}
 
 	db, err := database.NewMongoDB("mongodb://localhost:27017")
 
